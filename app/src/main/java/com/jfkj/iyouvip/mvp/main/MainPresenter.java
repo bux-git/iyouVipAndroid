@@ -31,11 +31,11 @@ public class MainPresenter extends BasePresenter<MainModel, IMainView> {
                 if (bannerData == null) {
                     mProxyView.onEmpty(null);
                 } else if (page == 1) {
-                    mProxyView.setNewData(bannerData.getDatas());
+                    mProxyView.onRefreshData(bannerData.getDatas());
                 } else if (bannerData.getCurPage() >=3) {// bannerData.getPageCount()
-                    mProxyView.dataLoadFinish();
+                    mProxyView.onDataFinish();
                 } else {
-                    mProxyView.addPageData(bannerData.getDatas());
+                    mProxyView.onNextPageData(bannerData.getDatas());
                 }
             }
 

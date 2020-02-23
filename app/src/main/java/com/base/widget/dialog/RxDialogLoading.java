@@ -1,4 +1,4 @@
-package com.base.dialog;
+package com.base.widget.dialog;
 
 import android.app.Activity;
 import android.content.Context;

@@ -94,4 +94,7 @@ dependencies {
     // implementation  'com.scwang.smart:refresh-header-two-level:2.0.0-alpha-1'   //二级刷新头
     // implementation  'com.scwang.smart:refresh-footer-ball:2.0.0-alpha-1'        //球脉冲加载
     //implementation  'com.scwang.smart:refresh-footer-classics:2.0.0-alpha-1'    //经典加载
+
+    //App中全局加载中、加载失败及空数据视图
+    implementation 'com.billy.android:gloading:1.1.0'
 }

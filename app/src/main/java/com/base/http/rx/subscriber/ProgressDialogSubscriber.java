@@ -3,7 +3,7 @@ package com.base.http.rx.subscriber;
 import android.content.Context;
 import android.content.DialogInterface;
 
-import com.base.dialog.RxDialogLoading;
+import com.base.widget.dialog.RxDialogLoading;
 
 import org.reactivestreams.Subscription;
 

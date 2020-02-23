@@ -9,6 +9,7 @@ import android.content.Context;
  */
 public interface IBaseView {
 
+
     /**
      * 空数据
      *

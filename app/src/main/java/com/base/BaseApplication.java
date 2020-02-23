@@ -14,8 +14,11 @@ import com.base.di.component.DaggerAppComponent;
 import com.base.di.module.AppModule;
 import com.base.di.module.HttpModule;
 import com.base.utils.GlideCacheUtil;
+import com.base.widget.globalloading.adapter.GlobalAdapter;
+import com.billy.android.loading.Gloading;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.jfkj.iyouvip.BuildConfig;
 import com.jfkj.iyouvip.R;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
@@ -64,8 +67,19 @@ public class BaseApplication extends Application {
                 .httpModule(new HttpModule()).build();
 
 
+        initGloading();
         initActivityLifecycle();
 
+    }
+
+    /**
+     * 初始化全局状态View
+     */
+    private void initGloading() {
+        //Init the default loading status view for global usage wrap a
+        //      customer Adapter implementation
+        Gloading.debug(BuildConfig.DEBUG);
+        Gloading.initDefault(new GlobalAdapter());
     }
 
     @Override
