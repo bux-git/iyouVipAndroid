@@ -65,9 +65,8 @@ public class GlobalLoadingStatusView extends LinearLayout implements View.OnClic
                 break;
             case STATUS_LOAD_FAILED:
                 str = mGloadData.getErrorMsg();
-                image = mGloadData.getErrorMsg();
-                Boolean networkConn = NetworkUtils.isConnected();
-                if (!networkConn) {
+                image = mGloadData.getErrorImg();
+                if (!NetworkUtils.isConnected()) {
                     str = mGloadData.getNoNetWorkMsg();
                     image = mGloadData.getNoNetWorkImg();
                 }

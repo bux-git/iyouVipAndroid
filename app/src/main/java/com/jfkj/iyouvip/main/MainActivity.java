@@ -1,5 +1,6 @@
 package com.jfkj.iyouvip.main;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,7 +16,9 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -57,6 +60,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
 
     @Override
     protected void init() {
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter = new BaseQuickAdapter<BannerData.DatasBean, BaseHolder>(R.layout.main_item_layout) {
 
@@ -86,6 +90,17 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
 
     }
 
+    private void getValue(HashMap<String, String> hashMap) {
+        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+            /*if(entry.getValue() instanceof Map<String,String>){
+
+            }else{
+
+            }*/
+            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+        }
+    }
+
     private void getNextPageData() {
         mPresenter.getData(++page);
     }
@@ -106,6 +121,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
                 break;
             case R.id.btn_failed:
                 showLoadFailed();
+                startActivity(new Intent(this, MemoryActivity.class));
                 break;
             default:
         }

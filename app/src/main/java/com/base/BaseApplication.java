@@ -14,6 +14,7 @@ import com.base.di.component.DaggerAppComponent;
 import com.base.di.module.AppModule;
 import com.base.di.module.HttpModule;
 import com.base.utils.GlideCacheUtil;
+import com.base.utils.LogUtil;
 import com.base.widget.globalloading.adapter.GlobalAdapter;
 import com.billy.android.loading.Gloading;
 import com.bumptech.glide.Glide;
@@ -69,6 +70,7 @@ public class BaseApplication extends Application {
 
         initGloading();
         initActivityLifecycle();
+        LogUtil.init();
 
     }
 

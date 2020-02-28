@@ -44,6 +44,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.6.2'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.6.2'
+
 
     // okHttp
     implementation 'com.squareup.okhttp3:okhttp:4.2.2'
@@ -97,4 +99,10 @@ dependencies {
 
     //App中全局加载中、加载失败及空数据视图
     implementation 'com.billy.android:gloading:1.1.0'
+
+    //权限
+    implementation 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.5@aar'
+
+    //日志
+    implementation 'com.orhanobut:logger:2.2.0'
 }

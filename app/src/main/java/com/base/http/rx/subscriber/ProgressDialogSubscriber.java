@@ -68,12 +68,7 @@ public abstract class ProgressDialogSubscriber<T> extends ErrorHandlerSubscriber
         }
     }
 
-    /**
-     * 无网络 加载失败 重试
-     */
-    public void noLoadReTry() {
 
-    }
 
     /**
      * loading关闭通知

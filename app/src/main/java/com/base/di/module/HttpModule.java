@@ -4,7 +4,6 @@ import com.base.BaseApplication;
 import com.base.constant.Constant;
 import com.base.http.ApiService;
 import com.base.http.util.SSLSocketClient;
-import com.base.http.util.StringConverterFactory;
 import com.google.gson.Gson;
 import com.jfkj.iyouvip.BuildConfig;
 
@@ -18,6 +17,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
  * @description：
@@ -63,7 +63,7 @@ public class HttpModule {
 
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(Constant.GLOBAL_BASE_URL)
-                .addConverterFactory(StringConverterFactory.create())
+                .addConverterFactory(ScalarsConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(okHttpClient);
         return builder.build();
