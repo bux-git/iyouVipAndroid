@@ -40,7 +40,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
     @BindView(R.id.btn_failed)
     Button mBtnFailed;
 
-
+//test
     private int page = 1;
 
     @Override
