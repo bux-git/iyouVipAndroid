@@ -27,6 +27,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".main.MemoryActivity" />
+        <activity android:name=".main.GZipActivity" />
     </application>
 
 </manifest>

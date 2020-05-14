@@ -16,9 +16,7 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -68,6 +66,7 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
             protected void convert(BaseHolder helper, BannerData.DatasBean item) {
                 helper.setImg(R.id.iv_bg, item.getEnvelopePic())
                         .setText(R.id.title, item.getTitle());
+
             }
         });
 
@@ -88,26 +87,9 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
         });
         mRefreshLayout.autoRefresh();
 
+        initEvent();
     }
 
-    private void getValue(HashMap<String, String> hashMap) {
-        for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-            /*if(entry.getValue() instanceof Map<String,String>){
-
-            }else{
-
-            }*/
-            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
-        }
-    }
-
-    private void getNextPageData() {
-        mPresenter.getData(++page);
-    }
-
-    private void refreshData() {
-        mPresenter.getData(page = 1);
-    }
 
     @OnClick({R.id.btn_load, R.id.btn_empty, R.id.btn_failed})
     public void onViewClicked(View view) {
@@ -121,7 +103,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
                 break;
             case R.id.btn_failed:
                 showLoadFailed();
-                startActivity(new Intent(this, MemoryActivity.class));
                 break;
             default:
         }
@@ -169,6 +150,34 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements IMai
     @Override
     public void onDataFinish() {
         mRefreshLayout.finishRefreshWithNoMoreData();
+    }
+
+
+    private void initEvent() {
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(MainActivity.this, MemoryActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(MainActivity.this, GZipActivity.class));
+                        break;
+                    default:
+                }
+            }
+        });
+
+    }
+
+
+    private void getNextPageData() {
+        mPresenter.getData(++page);
+    }
+
+    private void refreshData() {
+        mPresenter.getData(page = 1);
     }
 
 
